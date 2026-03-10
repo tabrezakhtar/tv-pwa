@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Star } from "lucide-react";
 
-export function ShowCard({ show }) {
+export function ShowCard({ show, onClick }) {
   const stripHtml = (html) => {
     if (!html) return "No description available";
     const tmp = document.createElement("div");
@@ -10,7 +10,10 @@ export function ShowCard({ show }) {
   };
 
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg">
+    <Card 
+      className="overflow-hidden transition-all hover:shadow-lg cursor-pointer" 
+      onClick={() => onClick(show.id)}
+    >
       <div className="aspect-[2/3] overflow-hidden bg-muted">
         {show.image?.medium ? (
           <img

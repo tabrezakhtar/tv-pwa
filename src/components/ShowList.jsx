@@ -1,7 +1,7 @@
 import { ShowCard } from "./ShowCard";
 import { Loader2 } from "lucide-react";
 
-export function ShowList({ shows, isLoading, error }) {
+export function ShowList({ shows, isLoading, error, onShowClick }) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-20">
@@ -34,7 +34,7 @@ export function ShowList({ shows, isLoading, error }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {shows.map((item) => (
-        <ShowCard key={item.show.id} show={item.show} />
+        <ShowCard key={item.show.id} show={item.show} onClick={onShowClick} />
       ))}
     </div>
   );

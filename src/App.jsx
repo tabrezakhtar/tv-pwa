@@ -2,14 +2,24 @@ import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 import { SearchBox } from './components/SearchBox';
 import { ShowList } from './components/ShowList';
+import { ShowDetails } from './components/ShowDetails';
 import { useShowSearch } from './hooks/useShowSearch';
 import { Tv } from 'lucide-react';
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
+  const [selectedShowId, setSelectedShowId] = useState(null);
   
   const { shows, isLoading, error } = useShowSearch(debouncedSearchTerm);
+
+  const handleShowClick = (showId) => {
+    setSelectedShowId(showId);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedShowId(null);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -37,9 +47,15 @@ export default function App() {
             </p>
           </div>
         ) : (
-          <ShowList shows={shows} isLoading={isLoading} error={error} />
+          <ShowList shows={shows} isLoading={isLoading} error={error} onShowClick={handleShowClick} />
         )}
       </main>
+
+      <ShowDetails 
+        showId={selectedShowId} 
+        open={!!selectedShowId} 
+        onOpenChange={(open) => !open && handleCloseModal()} 
+      />
     </div>
   );
 }

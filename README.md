@@ -4,12 +4,11 @@ A Progressive Web App for searching and exploring TV shows, built with React and
 
 ## Features
 
-- 🔍 **Fast Search** - Debounced search with instant results
-- 📱 **Progressive Web App** - Works offline and can be installed on your device
-- 💾 **Offline Storage** - All searches cached locally using IndexedDB
-- 🎬 **Detailed Information** - View show details including cast, seasons, ratings, and more
-- 🎨 **Modern UI** - Built with Tailwind CSS and shadcn/ui components
-- ⚡ **Fast Performance** - Powered by Vite for lightning-fast development and builds
+- **Fast Search** - Debounced search with instant results
+- **Progressive Web App** - Works offline and can be installed on your device
+- **Offline Storage** - All searches cached locally using IndexedDB
+- **Detailed Information** - View show details including cast, seasons, ratings, and more
+- **Modern UI** - Built with Tailwind CSS and shadcn/ui components
 
 ## Technology Stack
 

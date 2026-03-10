@@ -1,5 +1,5 @@
 import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 export function SearchBox({ value, onChange, placeholder = "Search TV shows..." }) {
   return (
@@ -12,6 +12,15 @@ export function SearchBox({ value, onChange, placeholder = "Search TV shows..." 
         placeholder={placeholder}
         className="pl-10 h-12 text-base"
       />
+      {value && (
+        <button
+          aria-label="Clear search"
+          className="absolute right-3 top-1/2 -translate-y-1/2 size-5 text-muted-foreground hover:text-foreground"
+          onClick={() => onChange("")}
+        >
+          <X />
+        </button>
+      )}
     </div>
   );
 }

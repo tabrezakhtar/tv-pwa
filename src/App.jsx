@@ -6,7 +6,7 @@ import { ShowDetails } from './components/ShowDetails';
 import { About } from './components/About';
 import { useShowSearch } from './hooks/useShowSearch';
 import { clearCache } from './lib/db';
-import { Tv, Trash2, Info } from 'lucide-react';
+import { Tv, Trash2, Info, Code2 } from 'lucide-react';
 import { Button } from './components/ui/button';
 
 export default function App() {
@@ -38,14 +38,25 @@ export default function App() {
                 <Tv className="size-8 text-primary" />
                 <h1 className="text-3xl font-bold">TV Show Search PWA</h1>
               </button>
-              <Button
-                variant="outline"
-                size="default"
-                onClick={() => setCurrentPage('home')}
-                className="flex items-center gap-2"
-              >
-                Back to Search
-              </Button>
+              <div className="flex items-center gap-2">
+                <a
+                  href="https://github.com/tabrezakhtar/tv-pwa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center text-muted-foreground hover:text-foreground gap-1"
+                >
+                  <img src="/GitHub_Invertocat_Black.svg" alt="GitHub" className="size-5 h-5 w-5" />
+                  <span className="text-sm font-medium">GitHub</span>
+                </a>
+                <Button
+                  variant="outline"
+                  size="default"
+                  onClick={() => setCurrentPage('home')}
+                  className="flex items-center gap-2"
+                >
+                  Back to Search
+                </Button>
+              </div>
             </div>
           </div>
         </header>
@@ -67,6 +78,15 @@ export default function App() {
               <h1 className="text-3xl font-bold">TV Show Search</h1>
             </button>
             <div className="flex items-center gap-2">
+              <a
+                href="https://github.com/tabrezakhtar/tv-pwa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-muted-foreground hover:text-foreground gap-1"
+              >
+                <img src="/GitHub_Invertocat_Black.svg" alt="GitHub" className="size-5 h-5 w-5" />
+                <span className="text-sm font-medium">GitHub</span>
+              </a>
               <Button
                 variant="ghost"
                 size="default"

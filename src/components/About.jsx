@@ -120,7 +120,8 @@ export function About() {
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                GitHub
+                <img src="/GitHub_Invertocat_Black.svg" alt="GitHub" className="size-5 h-5 w-5" />
+                <span className="text-md">GitHub</span>
               </a>
             </p>
           </CardContent>

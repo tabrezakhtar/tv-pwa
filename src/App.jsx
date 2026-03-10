@@ -10,7 +10,7 @@ import { Tv, Trash2, Info } from 'lucide-react';
 import { Button } from './components/ui/button';
 
 export default function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('nature');
   const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
   const [selectedShowId, setSelectedShowId] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
@@ -28,7 +28,7 @@ export default function App() {
   if (currentPage === 'about') {
     return (
       <div className="min-h-screen bg-background">
-        <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <header className="sticky top-0 z-50 w-full border-b border-border bg-[#fcfcfc]">
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-3">
               <button
@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="sticky top-0 z-50 w-full border-b border-border bg-[#fcfcfc]">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between gap-3 mb-4">
             <button

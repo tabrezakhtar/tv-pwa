@@ -40,6 +40,8 @@ export function useShowDetails(showId) {
     show: data,
     isLoading,
     error,
-    clearError: () => mutate(undefined, false),
+    // reset data and trigger a revalidation; used when closing the dialog
+    clearError: () => mutate(undefined),
+    refetch: () => mutate(),
   };
 }

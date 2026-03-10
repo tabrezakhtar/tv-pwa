@@ -4,7 +4,9 @@ import { SearchBox } from './components/SearchBox';
 import { ShowList } from './components/ShowList';
 import { ShowDetails } from './components/ShowDetails';
 import { useShowSearch } from './hooks/useShowSearch';
-import { Tv } from 'lucide-react';
+import { clearCache } from './lib/db';
+import { Tv, Trash2 } from 'lucide-react';
+import { Button } from './components/ui/button';
 
 export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,9 +27,23 @@ export default function App() {
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Tv className="size-8 text-primary" />
-            <h1 className="text-3xl font-bold">TV Show Search</h1>
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-3">
+              <Tv className="size-8 text-primary" />
+              <h1 className="text-3xl font-bold">TV Show Search</h1>
+            </div>
+            <Button
+              variant="outline"
+              size="default"
+              onClick={async () => {
+                await clearCache();
+                alert('Local cache cleared');
+              }}
+              className="flex items-center gap-2"
+            >
+              <Trash2 className="size-4" />
+              <span>Clear local cache</span>
+            </Button>
           </div>
           <SearchBox
             value={searchTerm}

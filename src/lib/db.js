@@ -37,3 +37,14 @@ export const getShowsFromCache = async (query) => {
     return null;
   }
 };
+
+export const clearCache = async () => {
+  try {
+    const db = await getDB();
+    const tx = db.transaction(STORE_NAME, 'readwrite');
+    await tx.objectStore(STORE_NAME).clear();
+    await tx.done;
+  } catch (error) {
+    console.error('Error clearing cache:', error);
+  }
+};

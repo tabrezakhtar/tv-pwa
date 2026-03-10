@@ -3,7 +3,7 @@ import { Loader2, Calendar, Star, Clock, Tv, Users, Globe } from "lucide-react";
 import { useShowDetails } from "@/hooks/useShowDetails";
 
 export function ShowDetails({ showId, open, onOpenChange }) {
-  const { show, isLoading, error, clearError } = useShowDetails(showId);
+  const { show, isLoading, error, clearError, refetch } = useShowDetails(showId);
 
   const stripHtml = (html) => {
     if (!html) return "No description available";
@@ -14,7 +14,11 @@ export function ShowDetails({ showId, open, onOpenChange }) {
 
   const handleOpenChange = (isOpen) => {
     if (!isOpen) {
+      // clear error and reset data so that reopening will fetch again
       clearError();
+    } else {
+      // when opening the dialog, make sure we pull fresh data
+      refetch();
     }
     onOpenChange(isOpen);
   };
